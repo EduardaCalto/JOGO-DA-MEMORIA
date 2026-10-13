@@ -12,7 +12,8 @@ body{
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  height: 100vh;
+  min-height: 100vh;
+  padding: 20px 0;
   background-color: #c7cdd3;
 }
 
@@ -25,8 +26,9 @@ body{
 }
 
 .card{
-  width: 120px;
-  height: 120px;
+  /* no máximo 90px, menor se a tela for baixa (5 linhas de cartas) */
+  width: min(90px, calc((100vh - 100px) / 5));
+  height: min(90px, calc((100vh - 100px) / 5));
   position: relative;
 
   -webkit-transform-style: preserve-3d;
@@ -42,19 +44,14 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 20px;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.45);
+  border-radius: 14px;
+  box-shadow: 6px 6px 8px rgba(0, 0, 0, 0.45);
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
 }
 
 .icon{
-  /* width:80px;
-  height: 80px;
-  max-width: 80px;
-  max-height: 80px; */
- 
-  
+  width: 60%;
 }
 
 .flip{
@@ -73,7 +70,7 @@ body{
 .card_back{
   color: #101c2c;
   background-color: #05c3ff;
-  font-size: 30px;
+  font-size: 22px;
   /* display: none; */
 
 }
@@ -108,24 +105,16 @@ body{
   max-width: 700px;
   display: grid;
   grid-template: 1fr 1fr 1fr 1fr 1fr / 1fr 1fr 1fr 1fr;
-  gap:20px
+  gap: 12px;
 }
 
 @media only screen and (max-width: 700px) {
-  .game-board{
-      max-width: 400px;
-
-      grid-template: 1fr 1fr 1fr 1fr 1fr  / 1fr 1fr 1fr 1fr;
-      gap: 20px;
-    
+  #gameBoard{
+      gap: 10px;
   }
   .card{
-      width: 80px;
-      height: 80px;}
-  .icon
-{
-  width: 40px;
-}
+      width: min(70px, calc((100vh - 90px) / 5));
+      height: min(70px, calc((100vh - 90px) / 5));}
 .card_front,.card_back{
 border-radius:10px;
 
